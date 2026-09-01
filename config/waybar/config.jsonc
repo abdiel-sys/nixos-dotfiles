@@ -1,0 +1,166 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 10,
+  "margin-right": 5,
+  "margin-left": 5,
+  "height": 50,
+  "modules-left": [
+    "custom/files",
+    "custom/now-playing",
+    "custom/clock"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "idle_inhibitor",
+    "hyprland/language",
+    "custom/date",
+    "power-profiles-daemon",
+    // "custom/bluetooth",
+    // "custom/wifi",
+    "battery",
+    "custom/battery-warning",
+    "pulseaudio",
+    "memory",
+    "tray",
+    "custom/menu"
+  ],
+  "custom/files": {
+    "exec": "echo '{\"text\": \"\", \"tooltip\": \"Open File Manager\", \"class\": \"files\"}'",
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "dolphin",
+    "tooltip": true,
+    "interval": 3600
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    }
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "web": "󰖟",
+      "code": "",
+      "kitty": "",
+      "spotify": "",
+      "discord": ""
+      // "default": "{id}"
+    },
+    "on-scroll-up": "hyprctl dispatch \"hl.dsp.focus({workspace = 'r-1'})\"",
+    "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({workspace = 'r+1'})\"",
+    "on-click": "activate"
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-charging": " {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip": true,
+    "interval": 5
+  },
+  "custom/battery-warning": {
+    "exec": "~/.config/waybar/modules/battery-notify.sh",
+    "interval": 60,
+    "format": "",
+    "tooltip": false
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "EN",
+    "format-es": "ES",
+    "on-click": "hyprctl switchxkblayout current next"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-bluetooth": "{icon} {volume}%",
+    "scroll-step": 2,
+    "on-click": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ],
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "hands-free": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    }
+  },
+  "memory": {
+    "format": "󰍛 {used:0.1f}G",
+    "interval": 5
+  },
+  "custom/menu": {
+    "exec": "echo '{\"text\": \"⏻ \", \"tooltip\": \"System Menu\"}'",
+    "return-type": "json",
+    "on-click": "wlogout",
+    "interval": 5
+  },
+  "custom/wifi": {
+    "exec": "echo '{\"text\": \"\", \"tooltip\": \"Wi-Fi Settings\"}'",
+    "return-type": "json",
+    "on-click": "nm-connection-editor",
+    "interval": 3600
+  },
+  "custom/bluetooth": {
+    "exec": "echo '{\"text\": \"\", \"tooltip\": \"Bluetooth Settings\"}'",
+    "return-type": "json",
+    "on-click": "blueman-manager",
+    "interval": 3600
+  },
+  "custom/now-playing": {
+    "exec": "~/.config/waybar/modules/now-playing.sh",
+    "return-type": "text",
+    "interval": 2,
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-scroll-up": "playerctl --player=spotify next",
+    "on-scroll-down": "playerctl --player=spotify previous",
+    "tooltip": true
+  },
+  "custom/clock": {
+    "exec": "date '+ %H:%M'",
+    "return-type": "text",
+    "interval": 60,
+    "tooltip": true,
+    "tooltip-format": "Full date/time"
+  },
+  "custom/date": {
+    "exec": "date '+ %d %b'",
+    "return-type": "text",
+    "interval": 60,
+    "tooltip": true,
+    "tooltip-format": "Full date/time"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 12
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  }
+}

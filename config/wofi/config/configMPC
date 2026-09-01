@@ -1,0 +1,9 @@
+width=400
+height=180
+term=kitty
+hide_scroll=true
+print_command=true
+insensitive=true
+xoffset=1480
+prompt=
+columns=1
