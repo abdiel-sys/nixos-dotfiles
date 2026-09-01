@@ -9,6 +9,7 @@
     waybar = "waybar";
     wofi = "wofi";
     quickshell = "quickshell";
+    hypr = "hypr";
   };
 in {
   imports = [

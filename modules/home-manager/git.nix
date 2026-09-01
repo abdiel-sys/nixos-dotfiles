@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQkIXeAE1EOjnfwJ0rgF2YetsNcBvErtPq0y//Q+yRB 124847316+abdiel-sys@users.noreply.github.com";
+      key = "~/.ssh/id_ed25519";
       signByDefault = true;
     };
     settings = {
@@ -21,17 +21,11 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    settings."*" = {
-      ForwardAgent = false;
+    settings."github.com" = {
+      HostName = "github.com";
+      User = "git";
+      IdentityFile = "~/.ssh/id_ed25519";
       AddKeysToAgent = "yes";
-      Compression = false;
-      ServerAliveInterval = 0;
-      ServerAliveCountMax = 3;
-      HashKnownHosts = false;
-      UserKnownHostsFile = "~/.ssh/known_hosts";
-      ControlMaster = "no";
-      ControlPath = "~/.ssh/master-%r@%n:%p";
-      ControlPersist = "no";
     };
   };
 }
