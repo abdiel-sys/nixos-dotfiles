@@ -7,12 +7,13 @@
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     waybar = "waybar";
-    wofi = "wofi";
     quickshell = "quickshell";
     hypr = "hypr";
   };
 in {
   imports = [
+    # ../../modules/home-manager/hyprland/hyprlock.nix
+    ../../modules/home-manager/wofi.nix
     ../../modules/home-manager/vim.nix
     ../../modules/home-manager/nvf.nix
     ../../modules/home-manager/git.nix
@@ -24,7 +25,6 @@ in {
       recursive = true;
     })
     configs;
-
   home.username = "bold";
   home.homeDirectory = "/home/bold";
   home.stateVersion = "26.05";
@@ -77,7 +77,7 @@ in {
     kdePackages.dolphin
     quickshell
     fastfetch
-    wofi
+    nwg-displays
     (pkgs.writeShellApplication
       {
         name = "ns";
@@ -89,4 +89,5 @@ in {
       })
   ];
   services.kdeconnect.enable = true;
+  programs.wofi.enable = true;
 }

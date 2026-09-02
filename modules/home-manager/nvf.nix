@@ -27,6 +27,14 @@
           nix.enable = true;
           qml.enable = true;
         };
+        highlight = {
+          Normal = {
+            bg = "NONE";
+          };
+          NormalNC = {
+            bg = "NONE";
+          };
+        };
         visuals = {
           nvim-web-devicons.enable = true;
           cellular-automaton.enable = true;

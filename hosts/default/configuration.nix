@@ -6,8 +6,8 @@
 }: {
   nixpkgs.config.allowUnfree = true;
   imports = [
-    ../../modules/nixos/stylix.nix
     ../../modules/nixos/nvidia.nix
+    ../../modules/stylix/stylix.nix
     ./hardware-configuration.nix
   ];
 
@@ -69,8 +69,8 @@
     brightnessctl
     playerctl
     pavucontrol
-    hyprlock
     hypridle
+    hyprlock
   ];
   services.power-profiles-daemon.enable = true;
   programs.ssh.startAgent = true;

@@ -41,11 +41,5 @@
       desktop = 0.95;
       popups = 0.95;
     };
-    targets = {
-      nvf = {
-        enable = true;
-        transparentBackground = true;
-      };
-    };
   };
 }
