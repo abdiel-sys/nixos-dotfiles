@@ -17,6 +17,8 @@ in {
     ../../modules/home-manager/vim.nix
     ../../modules/home-manager/nvf.nix
     ../../modules/home-manager/git.nix
+    ../../modules/home-manager/cliphist.nix
+    ../../modules/home-manager/zsh.nix
   ];
 
   xdg.configFile =
@@ -32,33 +34,6 @@ in {
   home.sessionVariables = {
     EDITOR = "vim";
     FZF_DEFAULT_COMMAND = "fd --type f --hidden --follow";
-  };
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    history.size = 10000;
-    history.ignoreAllDups = true;
-    history.path = "$HOME/.zsh_history";
-    history.ignorePatterns = ["rm *" "pkill *" "cp *"];
-
-    initContent = ''
-      bindkey -e
-      bindkey '^p' history-search-backward
-      bindkey '^n' history-search-forward
-      bindkey '^[w' kill-region
-    '';
-    shellAliases = {
-      btw = "echo i use hyprland btw";
-      nrs = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
-    };
-    profileExtra = ''
-      if uwsm check may-start; then
-          exec uwsm start hyprland.desktop
-      fi
-    '';
   };
   programs.wlogout.enable = true;
   programs.foot = {
@@ -78,6 +53,11 @@ in {
     quickshell
     fastfetch
     nwg-displays
+    teams-for-linux
+    libreoffice-stable
+    onlyoffice-desktopeditors
+    hunspell
+    hunspellDicts.es_MX
     (pkgs.writeShellApplication
       {
         name = "ns";

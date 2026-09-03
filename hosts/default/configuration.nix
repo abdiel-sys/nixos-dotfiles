@@ -6,6 +6,7 @@
 }: {
   nixpkgs.config.allowUnfree = true;
   imports = [
+    ../../modules/nixos/plymouth.nix
     ../../modules/nixos/nvidia.nix
     ../../modules/stylix/stylix.nix
     ./hardware-configuration.nix
@@ -35,6 +36,8 @@
     withUWSM = true;
     xwayland.enable = true;
   };
+  i18n.defaultLocale = "en_GB.UTF-8";
+  i18n.extraLocales = ["es_MX.UTF-8/UTF-8"];
 
   programs.zsh.enable = true;
   users.users.bold = {
@@ -78,7 +81,8 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
-
+  services.udisks2.enable = true;
+  environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
   nix.settings.experimental-features = ["nix-command" "flakes"];
   services.syncthing = {
     enable = true;

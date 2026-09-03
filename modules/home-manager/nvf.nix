@@ -3,6 +3,11 @@
     enable = true;
     settings = {
       vim = {
+        clipboard = {
+          enable = true;
+          providers.wl-copy.enable = true;
+          registers = "unnamedplus";
+        };
         spellcheck = {
           enable = true;
           programmingWordlist.enable = true;
