@@ -80,7 +80,10 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    carlito
   ];
+
+  fonts.enableDefaultPackages = true;
   services.udisks2.enable = true;
   environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
   nix.settings.experimental-features = ["nix-command" "flakes"];

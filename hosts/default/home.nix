@@ -50,14 +50,20 @@ in {
     keepassxc
     pear-desktop
     kdePackages.dolphin
+    kdePackages.okular
     quickshell
     fastfetch
     nwg-displays
     teams-for-linux
     libreoffice-stable
     onlyoffice-desktopeditors
+    imv
     hunspell
     hunspellDicts.es_MX
+    hyphenDicts.en_GB
+    hyphenDicts.es_MX
+    hyphenDicts.es_ES
+    imagemagick
     (pkgs.writeShellApplication
       {
         name = "ns";
