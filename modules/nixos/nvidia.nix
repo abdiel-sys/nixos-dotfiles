@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{config, ...}: {
   hardware.graphics = {
     enable = true;
   };
@@ -23,7 +18,6 @@
     "nvidiafb"
     "rivatv"
     "nv"
-    "uvcvideo"
   ];
 
   hardware.nvidia = {

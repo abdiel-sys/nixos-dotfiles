@@ -6,9 +6,10 @@
 }: {
   nixpkgs.config.allowUnfree = true;
   imports = [
+    ../../modules/nixos/main-user.nix
     ../../modules/nixos/plymouth.nix
     ../../modules/nixos/nvidia.nix
-    ../../modules/stylix/stylix.nix
+    ../../modules/stylix
     ./hardware-configuration.nix
   ];
 
@@ -34,20 +35,23 @@
   programs.hyprland = {
     enable = true;
     withUWSM = true;
-    xwayland.enable = true;
   };
+
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocales = ["es_MX.UTF-8/UTF-8"];
 
   programs.zsh.enable = true;
-  users.users.bold = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      tree
-    ];
+  mySystem.users.mainUser = {
+    enable = true;
   };
+  # users.users.bold = {
+  #   isNormalUser = true;
+  #   extraGroups = ["wheel" "networkmanager"];
+  #   shell = pkgs.zsh;
+  #   packages = with pkgs; [
+  #     tree
+  #   ];
+  # };
 
   programs.firefox.enable = true;
   networking.firewall = rec {
@@ -62,11 +66,12 @@
 
   environment.systemPackages = with pkgs; [
     wget
-    kitty
     vim
     alejandra
     qt6.qtdeclarative
 
+    corefonts
+    adwaita-qt
     waybar
     hyprpaper
     brightnessctl
@@ -81,6 +86,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     carlito
+    cantarell-fonts
   ];
 
   fonts.enableDefaultPackages = true;
@@ -101,5 +107,6 @@
     dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server hosting
     # Other general flags if available can be set here.
   };
+
   system.stateVersion = "26.05";
 }

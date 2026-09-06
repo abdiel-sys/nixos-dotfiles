@@ -21,10 +21,9 @@
       btw = "echo i use hyprland btw";
       nrs = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
     };
-
     profileExtra = ''
       if uwsm check may-start; then
-        exec uwsm start hyprland.desktop
+          exec uwsm start hyprland.desktop
       fi
     '';
   };

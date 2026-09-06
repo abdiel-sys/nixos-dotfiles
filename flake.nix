@@ -24,23 +24,22 @@
     stylix,
     nvf,
     ...
-  }: {
+  } @ inputs: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
         modules = [
           stylix.nixosModules.stylix
           ./hosts/default/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
+              extraSpecialArgs = {inherit inputs;};
               useGlobalPkgs = true;
               useUserPackages = true;
               users.bold = import ./hosts/default/home.nix;
               backupFileExtension = "backup";
-              sharedModules = [
-                nvf.homeManagerModules.default
-              ];
             };
           }
         ];

@@ -31,7 +31,10 @@
           enableFormat = true;
           enableTreesitter = true;
 
-          nix.enable = true;
+          nix = {
+            enable = true;
+            lsp.servers = ["nixd"];
+          };
           qml.enable = true;
           lua.enable = true;
           markdown = {
