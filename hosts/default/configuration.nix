@@ -16,9 +16,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
-  networking.wireless.enable = true;
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+    wireless.enable = true;
+  };
 
   time.timeZone = "America/Mexico_City";
 
@@ -69,6 +71,7 @@
     vim
     alejandra
     qt6.qtdeclarative
+    networkmanagerapplet
 
     corefonts
     adwaita-qt
