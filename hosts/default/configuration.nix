@@ -72,6 +72,7 @@
     alejandra
     qt6.qtdeclarative
     networkmanagerapplet
+    devenv
 
     corefonts
     adwaita-qt

@@ -164,6 +164,12 @@ hl.window_rule({
   scrolling_width = 0.75,
 })
 
+hl.window_rule({
+  name = "KeePassXC Unlocking",
+  match = { initial_title = "Unlock Database - KeePassXC" },
+  float = true,
+  center = true,
+})
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
   dwindle = {
@@ -235,6 +241,7 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("cliphist list | wofi -d -w 2 | cliphist decode | wl-copy"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -255,7 +262,7 @@ hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Lock
-hl.bind(mainMod .. " + ALT + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
@@ -302,6 +309,10 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("swapcol r"))
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("swapcol l"))
 hl.bind(mainMod .. " + period", hl.dsp.layout("colresize +0.25"))
 hl.bind(mainMod .. " + comma", hl.dsp.layout("colresize -0.25"))
+
+--Screenshot
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim /home/bold/Pictures/Screenshots/" .. os.time() .. "_grim.png"))
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
