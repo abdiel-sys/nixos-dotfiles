@@ -26,5 +26,14 @@
           exec uwsm start hyprland.desktop
       fi
     '';
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "z"
+        "zsh-interactive-cd"
+      ];
+      theme = "half-life";
+    };
   };
 }

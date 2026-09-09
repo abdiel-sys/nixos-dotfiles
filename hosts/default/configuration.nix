@@ -6,6 +6,8 @@
 }: {
   nixpkgs.config.allowUnfree = true;
   imports = [
+    ../../modules/nixos/power-management.nix
+    ../../modules/nixos/swap.nix
     ../../modules/nixos/main-user.nix
     ../../modules/nixos/plymouth.nix
     ../../modules/nixos/nvidia.nix
@@ -74,7 +76,6 @@
     networkmanagerapplet
     devenv
 
-    corefonts
     adwaita-qt
     waybar
     hyprpaper
@@ -84,7 +85,6 @@
     hypridle
     hyprlock
   ];
-  services.power-profiles-daemon.enable = true;
   programs.ssh.startAgent = true;
 
   fonts.packages = with pkgs; [
