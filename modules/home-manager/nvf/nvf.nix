@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       vim = {
+        undoFile.enable = true;
         clipboard = {
           enable = true;
           providers.wl-copy.enable = true;

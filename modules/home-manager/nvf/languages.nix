@@ -9,6 +9,7 @@
       };
       qml.enable = true;
       lua.enable = true;
+      typescript.enable = true;
       markdown = {
         enable = true;
         format.enable = false;
@@ -23,6 +24,9 @@
     lsp = {
       enable = true;
       formatOnSave = true;
+    };
+    git = {
+      enable = true;
     };
   };
 }

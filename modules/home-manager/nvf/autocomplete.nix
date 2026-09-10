@@ -6,8 +6,10 @@
       setupOpts = {
         signature.enabled = true;
         cmdline = {
-          keymap.preset = "cmdline";
-          completion.menu.auto_show = true;
+          keymap = {
+            preset = "inherit";
+          };
+          completion.menu.auto_show = false;
         };
       };
     };

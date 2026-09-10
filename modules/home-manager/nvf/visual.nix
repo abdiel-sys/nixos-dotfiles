@@ -1,5 +1,11 @@
 {
   programs.nvf.settings.vim = {
+    # minimap.minimap-vim.enable = true;
+    # globals = {
+    #   minimap_width = 20;
+    #   minimap_auto_start = 1;
+    #   minimap_auto_start_win_enter = 1;
+    # };
     visuals = {
       nvim-web-devicons.enable = true;
       cellular-automaton.enable = true;
