@@ -6,6 +6,11 @@
     #   minimap_auto_start = 1;
     #   minimap_auto_start_win_enter = 1;
     # };
+    ui = {
+      colorizer = {
+        enable = true;
+      };
+    };
     visuals = {
       nvim-web-devicons.enable = true;
       cellular-automaton.enable = true;
@@ -26,15 +31,6 @@
     statusline = {
       lualine = {
         enable = true;
-      };
-    };
-
-    highlight = {
-      Normal = {
-        bg = "NONE";
-      };
-      NormalNC = {
-        bg = "NONE";
       };
     };
   };

@@ -10,6 +10,6 @@
     ./raw_lua.nix
     ./spellcheck.nix
     ./terminal.nix
-    ./visual.nix
+    ./visuals.nix
   ];
 }

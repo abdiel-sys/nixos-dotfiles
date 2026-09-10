@@ -46,15 +46,6 @@ in {
     rclone
     imagemagick
     poppler-utils
-    unzip
-    _7zz
-    gnutar
-    bzip2
-    xz
-    zip
-    gzip
-    lha
-    lz4
     (pkgs.writeShellApplication
       {
         name = "ns";

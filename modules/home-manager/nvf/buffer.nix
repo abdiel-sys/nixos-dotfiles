@@ -6,8 +6,17 @@
         closeCurrent = "<leader>bx";
       };
       setupOpts = {
-        options = {
-          separator_style = "padded_slant";
+        # options = {
+        #   separator_style = "padded_slant";
+        # };
+
+        highlights = {
+          fill = {
+            bg = "NONE";
+          };
+          buffer_selected = {
+            bold = true;
+          };
         };
       };
     };

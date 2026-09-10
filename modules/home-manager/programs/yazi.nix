@@ -1,4 +1,15 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    unzip
+    _7zz
+    gnutar
+    bzip2
+    xz
+    zip
+    gzip
+    lha
+    lz4
+  ];
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;

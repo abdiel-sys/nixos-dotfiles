@@ -27,6 +27,8 @@
         silent = true;
         desc = "Search notes";
       }
+      # Tabs keymaps
+      # Moving through windows
       {
         key = "<C-h>";
         action = "<C-w>h";
@@ -55,6 +57,7 @@
         silent = true;
         desc = "Move to the upper window";
       }
+      # Split windows
       {
         key = "<C-t>";
         action = ":vsplit<CR>";
@@ -62,12 +65,43 @@
         silent = true;
         desc = "Split vertically";
       }
+      # Resize windows
+      {
+        key = "<C-,>";
+        action = "<C-w><";
+        mode = "n";
+        silent = true;
+        desc = "Resize width";
+      }
+      {
+        key = "<C-.>";
+        action = "<C-w>>";
+        mode = "n";
+        silent = true;
+        desc = "Resize width +";
+      }
+      # Terminal
       {
         key = "<Esc>";
         action = "<C-\\><C-n>";
         mode = "t";
         silent = true;
         desc = "Exit terminal mode";
+      }
+      # Bufferline
+      {
+        key = "<leader>tn";
+        action = ":vert belowright sbnext<CR>";
+        mode = "n";
+        silent = true;
+        desc = "Split vertically along the next buffer to the right";
+      }
+      {
+        key = "<leader>ts";
+        action = ":horizontal sbnext<CR>";
+        mode = "n";
+        silent = true;
+        desc = "Split horizontally along the next buffer to the right";
       }
     ];
   };
