@@ -4,6 +4,8 @@
       enable = true;
       mappings = {
         closeCurrent = "<leader>bx";
+        cycleNext = "<leader>]";
+        cyclePrevious = "<leader>[";
       };
       setupOpts = {
         # options = {

@@ -10,6 +10,7 @@
       qml.enable = true;
       lua.enable = true;
       typescript.enable = true;
+      python.enable = true;
       markdown = {
         enable = true;
         format.enable = false;

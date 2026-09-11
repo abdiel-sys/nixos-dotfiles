@@ -13,7 +13,8 @@
   };
 in {
   imports = [
-    inputs.nvf.homeManagerModules.default
+
+inputs.nvf.homeManagerModules.default
     ../../modules/home-manager
   ];
 
@@ -46,6 +47,7 @@ in {
     rclone
     imagemagick
     poppler-utils
+
     (pkgs.writeShellApplication
       {
         name = "ns";

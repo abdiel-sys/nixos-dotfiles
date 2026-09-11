@@ -3,9 +3,9 @@
     ./git.nix
     ./zsh.nix
     ./hyprland
-    ./nvf
     ./terminals
     ./programs
+    ./nvf
   ];
   home.packages = with pkgs; [
     ripgrep
